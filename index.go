@@ -98,10 +98,17 @@ func Start(options *Options, handler func(*socketio.Server)) {
 }
 
 func chromeExecutable() (string, error) {
+	executable := ""
 	switch runtime.GOOS {
 	default:
 		return "", fmt.Errorf("Could not get chrome executable for GOOS=%s", runtime.GOOS)
 	case "darwin":
-		return "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", nil
+		executable = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+	case "linux":
+		executable = "/usr/bin/google-chrome"
+		if !fileExists(executable) {
+			executable = "/usr/bin/chromium-browser"
+		}
 	}
+	return executable, nil
 }
