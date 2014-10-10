@@ -1,0 +1,51 @@
+{
+  rules: {
+    no-alert: 0,
+    no-bitwise: 0,
+    // using underscored identifiers for postgresql
+    camelcase: 0,
+    curly: 0,
+    eqeqeq: 0,
+    no-eq-null: 0,
+    guard-for-in: 1,
+    no-empty: 1,
+    no-underscore-dangle: 0,
+    no-use-before-define: 0,
+    no-obj-calls: 2,
+    no-unused-vars: 0,
+    new-cap: 1,
+    no-shadow: 0,
+    strict: 2,
+    no-invalid-regexp: 2,
+    no-comma-dangle: 2,
+    no-undef: 1,
+    no-new: 1,
+    no-extra-semi: 1,
+    no-debugger: 2,
+    no-caller: 1,
+    semi: 1,
+    quotes: 0,
+    no-unreachable: 2
+  },
+  globals: {
+    //BEGIN mocha
+    after: false,
+    afterEach: false,
+    before: false,
+    beforeEach: false,
+    describe: false,
+    it: false,
+    //END
+
+    //BEGIN node
+    crypto: false
+    //END
+  },
+  env: {
+    browser: true,
+    node: true
+  }
+}
+
+
+
